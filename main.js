@@ -7,4 +7,4 @@ const server = pogo.server({ port });
 server.router.get('/', () => {
     return 'Hello, world!';
 });
-server.start();
+await server.start();
