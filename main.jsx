@@ -8,8 +8,16 @@ const argPort = flags.parse(Deno.args).port;
 const port = argPort ? Number(argPort) : defaultPort;
 const server = pogo.server({ port,hostname : '0.0.0.0' });
 
+const App = () => {
+    return <div data-reactroot=""><p>Hello, World from Stas with JSX!</p></div>;
+};
 server.router.get('/', () => {
-    return  <h1>Hello from JSX!</h1>;
+    return (
+        <html>
+            <head><title>Home of wow</title></head>
+            <body><div id="root"><App /></div></body>
+        </html>
+    );
 });
 
 await server.start();
